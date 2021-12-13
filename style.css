@@ -1,0 +1,65 @@
+body {
+    font-family: 'Bakbak One', cursive;
+}
+
+#calc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    background-color: lightslategray;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+    gap: 2px;
+    background-color: black;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.display {
+    background-color: #ffffff;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 5px 0px;
+    font-size: 5em;
+    border-radius: 4px;
+}
+
+button {
+    font-family: 'Bakbak One', cursive;
+    border-radius: 4px;
+}
+
+.num {
+    background-color: #ffffff;
+    font-size: 30px;
+}
+
+.op {
+    background-color: #ba0606;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.decimal {
+    background-color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#zero {
+    grid-column: span 2;
+}
+
+#clear {
+    grid-column: span 2;
+}
