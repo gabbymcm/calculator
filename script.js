@@ -5,6 +5,7 @@ const decimal = document.querySelector("#dec");
 const button = document.querySelector("button");
 const display = document.querySelector(".display");
 const equals = document.querySelector("#equals");
+const back = document.querySelector(".back");
 
 var num1 = '';
 var num2 = '';
@@ -45,9 +46,31 @@ function assignNum(){
             };   
         });
     });
+
+
 };
 
 assignNum();
+
+// Backspace functionality
+
+function backSpace() {
+    back.addEventListener('click', () =>{
+        if (operator === "0"){
+            num1 = num1.substring(0, num1.length -1);
+            content.textContent = num1;
+            display.appendChild(content); 
+            return num1;
+        } else {
+            num2 = num2.substring(0, num2.length -1);
+            content.textContent = num2;
+            display.appendChild(content); 
+            return num2;
+        };   
+    });
+};
+
+backSpace();
 
 // Run operate function based on inputs
 
