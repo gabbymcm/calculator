@@ -5,7 +5,7 @@ const decimal = document.querySelector("#dec");
 const button = document.querySelector("button");
 const display = document.querySelector(".display");
 const equals = document.querySelector("#equals");
-const back = document.querySelector(".back");
+const back = document.querySelector(".backSpace");
 
 var num1 = '';
 var num2 = '';
