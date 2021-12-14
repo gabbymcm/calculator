@@ -1,19 +1,77 @@
+const num = document.querySelectorAll(".num");
+const op = document.querySelectorAll(".op");
+const clear = document.querySelector("#clear");
+const decimal = document.querySelector("#dec");
+const button = document.querySelector("button");
+const display = document.querySelector(".display");
+
+var num1 = '';
+var num2 = '';
+var solution = '';
+var operator = "0";
+const content = document.createElement('h1');
+content.textContent = '0';
+display.appendChild(content);
+
+//Store the operand
+function operand(){
+    for (let i = 0; i <= 5; i++) {
+        op[i].addEventListener('click', () => {
+            operator = op[i].value;
+            content.textContent = operator;
+            display.appendChild(content); 
+            return operator;
+        });
+    };
+};
+
+operand();
+
+//Assign numbers from buttons to the first and second variable
+function assignNum(){
+    num.forEach( function(item){
+        item.addEventListener('click', () => {
+            if (operator === "0"){
+                num1 += item.value;
+                content.textContent = num1;
+                display.appendChild(content); 
+                return num1;
+            } else {
+                num2 += item.value;
+                content.textContent = num2;
+                display.appendChild(content); 
+                return num2;
+            };   
+        });
+    });
+};
+
+assignNum();
+
+// Run operate function based on inputs
+
+
+
+
+//basic calculator functions
 function addition (a, b){
     return a + b;
 };
-
 function subtraction (a, b){
     return a - b;
 };
-
 function multiply (a, b){
     return a * b;
 };
-
 function divide (a, b){
-    return a / b;
+    if (b === 0 || a === 0){
+        return "nice try";
+    } else {
+        return a / b;
+    }  
 };
 
+//function to trigger calculator functions
 function operate(operator, num1, num2){
     if (operator === "+"){
         return addition(num1, num2);
@@ -25,56 +83,3 @@ function operate(operator, num1, num2){
         return divide(num1, num2);
     };
 };
-
-var display = [];
-
-function addDisplay(num){
-    display.push(num);
-};
-
-document.querySelector('#one').addEventListener('click', () => {
-    addDisplay(1);
-});
-document.querySelector('#two').addEventListener('click', () => {
-    addDisplay(2);
-});
-document.querySelector('#three').addEventListener('click', () => {
-    addDisplay(3);
-});
-document.querySelector('#four').addEventListener('click', () => {
-    addDisplay(4);
-});
-document.querySelector('#five').addEventListener('click', () => {
-    addDisplay(5);
-});
-document.querySelector('#six').addEventListener('click', () => {
-    addDisplay(6);
-});
-document.querySelector('#seven').addEventListener('click', () => {
-    addDisplay(7);
-});
-document.querySelector('#eight').addEventListener('click', () => {
-    addDisplay(8);
-});
-document.querySelector('#nine').addEventListener('click', () => {
-    addDisplay(9);
-});
-document.querySelector('#zero').addEventListener('click', () => {
-    addDisplay(0);
-});
-
-var operator;
-
-document.querySelector("#sum").addEventListener('click', () => {
-    operator = "+";
-});
-document.querySelector("#subtract").addEventListener('click', () => {
-    operator = "-";
-});
-document.querySelector("#multiply").addEventListener('click', () => {
-    operator = "*";
-});
-document.querySelector("#divide").addEventListener('click', () => {
-    operator = "/";
-});
-
