@@ -63,3 +63,7 @@ button {
 #clear {
     grid-column: span 2;
 }
+
+.spaceHolder {
+    background-color: #ba0606;
+}

@@ -4,6 +4,7 @@ const clear = document.querySelector("#clear");
 const decimal = document.querySelector("#dec");
 const button = document.querySelector("button");
 const display = document.querySelector(".display");
+const equals = document.querySelector("#equals");
 
 var num1 = '';
 var num2 = '';
@@ -50,8 +51,34 @@ assignNum();
 
 // Run operate function based on inputs
 
+function calculate (){
+    equals.addEventListener('click', () => {
+        solution = +(operate(operator, num1, num2)).toFixed(2);
+        content.textContent = solution;
+        display.appendChild(content);
+        num1 = '';
+        num2 = '';
+        operator = '0';
+        return solution;
+    });
 
+};
 
+calculate();
+
+// Clear button functionality
+function clearAll () {
+    clear.addEventListener('click', () => {
+        num1 = '';
+        num2 = '';
+        operator = '0';
+        solution = '';
+        content.textContent = '0';
+        display.appendChild(content);
+    });
+};  
+
+clearAll();
 
 //basic calculator functions
 function addition (a, b){
@@ -73,13 +100,15 @@ function divide (a, b){
 
 //function to trigger calculator functions
 function operate(operator, num1, num2){
+    var a = Number(num1)
+    var b = Number(num2);
     if (operator === "+"){
-        return addition(num1, num2);
+        return addition(a, b);
     } else if (operator === "-"){
-        return subtraction(num1, num2);
+        return subtraction(a, b);
     } else if (operator === "*"){
-        return multiply(num1, num2);
+        return multiply(a, b);
     } else {
-        return divide(num1, num2);
+        return divide(a, b);
     };
 };
