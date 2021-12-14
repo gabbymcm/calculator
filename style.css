@@ -43,7 +43,7 @@ button {
     font-size: 30px;
 }
 
-.op, .back, #equals {
+.op, .back, .equals {
     background-color: #ba0606;
     color: #ffffff;
     font-size: 30px;
