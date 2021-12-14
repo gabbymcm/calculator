@@ -16,7 +16,7 @@ display.appendChild(content);
 
 //Store the operand
 function operand(){
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 0; i <= 4; i++) {
         op[i].addEventListener('click', () => {
             operator = op[i].value;
             content.textContent = operator;
@@ -53,15 +53,26 @@ assignNum();
 
 function calculate (){
     equals.addEventListener('click', () => {
-        solution = +(operate(operator, num1, num2)).toFixed(2);
-        content.textContent = solution;
-        display.appendChild(content);
-        num1 = '';
-        num2 = '';
-        operator = '0';
-        return solution;
-    });
+        if(operator === "/" && (num1 === "0" || num2 === "0")){
+            solution = "nice try";
+            content.textContent = solution;
+            display.appendChild(content);
+            num1 = '';
+            num2 = '';
+            operator = '0';
+            return solution;
 
+        } else {
+            solution = +(operate(operator, num1, num2)).toFixed(2);
+            content.textContent = solution;
+            display.appendChild(content);
+            num1 = '';
+            num2 = '';
+            operator = '0';
+            return solution;
+        };
+        
+    });
 };
 
 calculate();
@@ -91,11 +102,7 @@ function multiply (a, b){
     return a * b;
 };
 function divide (a, b){
-    if (b === 0 || a === 0){
-        return "nice try";
-    } else {
-        return a / b;
-    }  
+    return a / b;
 };
 
 //function to trigger calculator functions

@@ -43,7 +43,7 @@ button {
     font-size: 30px;
 }
 
-.op {
+.op, .spaceHolder, #equals {
     background-color: #ba0606;
     color: #ffffff;
     font-size: 30px;
@@ -62,8 +62,4 @@ button {
 
 #clear {
     grid-column: span 2;
-}
-
-.spaceHolder {
-    background-color: #ba0606;
 }
